@@ -52,7 +52,7 @@ public class RETC023DeleteUserTest {
 	public void DeleteUser() throws InterruptedException {
 		retc022DelUser.Users();
 		Thread.sleep(3000);
-		retc022DelUser.allUsers();
+		//retc022DelUser.allUsersShown();
 		retc022DelUser.userSelected();
 		retc022DelUser.bulkactionlist();
 		retc022DelUser.delUser();

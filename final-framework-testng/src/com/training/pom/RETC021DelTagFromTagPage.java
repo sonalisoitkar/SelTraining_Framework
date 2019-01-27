@@ -24,23 +24,22 @@ public class RETC021DelTagFromTagPage {
 
 	public void clickPosts() throws InterruptedException {
 		System.out.println("Click on the Post Link");
-		Thread.sleep(5000);
+		Actions action=new Actions(driver);
+		action.moveToElement(Posts).click().build().perform();
 		this.Posts.click();
 	}
 
-	@FindBy(xpath="//a[@class='current']")
+	@FindBy(xpath = "//a[@href='edit-tags.php?taxonomy=post_tag']")
 	private WebElement tags;
 
 	public void clickTags() throws InterruptedException  {
 		System.out.println("Click on the tags link");
 			//Thread.sleep(5000);
-			Actions action=new Actions(driver);
-			action.moveToElement(tags).click().build().perform();
-			Thread.sleep(5000);
+		    tags.click();
 			System.out.println("tags page");
 	}
 
-	@FindBy(xpath = "//input[@id='cb-select-606']")
+	@FindBy(xpath = "//input[@id='cb-select-547']")
 	private WebElement checkbox;
 
 	public void selectCheckBox() throws InterruptedException  {

@@ -23,15 +23,16 @@ public class RETC022ChangeRoleOfUser {
 	private WebElement Users;
 
 	public void Users() {
+		Actions action = new Actions(driver);
+		action.moveToElement(Users).build().perform();
 		this.Users.click();
 	}
 //2. Click on All Users link
-	@FindBy(xpath = "//a[@class='wp-first-item current']")
+	@FindBy(xpath = "//*[@id='menu-users']/ul/li[2]")
 	private WebElement allUsers;
 
 	public void allUsers() {
-		Actions action = new Actions(driver);
-		action.moveToElement(allUsers).build().perform();
+		
 		allUsers.click();
 	}
 //3. Click on the checkbox beside the user

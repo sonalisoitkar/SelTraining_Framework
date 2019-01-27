@@ -2,28 +2,28 @@
 <testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="136506" started-at="2019-01-27T10:57:54Z" finished-at="2019-01-27T11:00:11Z">
+  <suite name="Default suite" duration-ms="93620" started-at="2019-01-27T12:47:19Z" finished-at="2019-01-27T12:48:53Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="136506" started-at="2019-01-27T10:57:54Z" finished-at="2019-01-27T11:00:11Z">
-      <class name="com.training.functional.tests.RETC025PropertiesPageTest">
-        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.functional.tests.RETC025PropertiesPageTest@27efef64]" name="setUpBeforeClass" is-config="true" duration-ms="10218" started-at="2019-01-27T10:57:54Z" finished-at="2019-01-27T10:58:04Z">
+    <test name="Default test" duration-ms="93620" started-at="2019-01-27T12:47:19Z" finished-at="2019-01-27T12:48:53Z">
+      <class name="com.training.functional.tests.RETC024AddNewUserTest">
+        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.functional.tests.RETC024AddNewUserTest@27efef64]" name="setUpBeforeClass" is-config="true" duration-ms="11253" started-at="2019-01-27T12:47:19Z" finished-at="2019-01-27T12:47:31Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpBeforeClass -->
-        <test-method status="PASS" signature="validLoginTest()[pri:0, instance:com.training.functional.tests.RETC025PropertiesPageTest@27efef64]" name="validLoginTest" duration-ms="74425" started-at="2019-01-27T10:58:05Z" finished-at="2019-01-27T10:59:19Z">
+        <test-method status="PASS" signature="validLoginTest()[pri:0, instance:com.training.functional.tests.RETC024AddNewUserTest@27efef64]" name="validLoginTest" duration-ms="29745" started-at="2019-01-27T12:47:31Z" finished-at="2019-01-27T12:48:00Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validLoginTest -->
-        <test-method status="PASS" signature="userProperties()[pri:1, instance:com.training.functional.tests.RETC025PropertiesPageTest@27efef64]" name="userProperties" duration-ms="51390" started-at="2019-01-27T10:59:19Z" finished-at="2019-01-27T11:00:10Z">
+        <test-method status="PASS" signature="addNewUserTest()[pri:1, instance:com.training.functional.tests.RETC024AddNewUserTest@27efef64]" name="addNewUserTest" duration-ms="52075" started-at="2019-01-27T12:48:00Z" finished-at="2019-01-27T12:48:53Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- userProperties -->
-        <test-method status="PASS" signature="adminPropertiesAssert()[pri:2, instance:com.training.functional.tests.RETC025PropertiesPageTest@27efef64]" name="adminPropertiesAssert" duration-ms="437" started-at="2019-01-27T11:00:10Z" finished-at="2019-01-27T11:00:11Z">
+        </test-method> <!-- addNewUserTest -->
+        <test-method status="PASS" signature="addNewUserAssert()[pri:2, instance:com.training.functional.tests.RETC024AddNewUserTest@27efef64]" name="addNewUserAssert" duration-ms="499" started-at="2019-01-27T12:48:53Z" finished-at="2019-01-27T12:48:53Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- adminPropertiesAssert -->
-      </class> <!-- com.training.functional.tests.RETC025PropertiesPageTest -->
+        </test-method> <!-- addNewUserAssert -->
+      </class> <!-- com.training.functional.tests.RETC024AddNewUserTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

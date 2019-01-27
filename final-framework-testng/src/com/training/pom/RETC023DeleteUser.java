@@ -21,25 +21,27 @@ public class RETC023DeleteUser {
 	}
 
 	// 1. Click on Users link
-	@FindBy(xpath = "//*[@id='menu-users']/a/div[2]")
+	@FindBy(xpath = "//*[@id=\"menu-users\"]/a/div[2]")
 	private WebElement Users;
 
 	public void Users() {
+		System.out.println("Click on User Navigation menu");
+		Actions action = new Actions(driver);
+		action.moveToElement(Users).build().perform();
 		this.Users.click();
 	}
 
 	// 2. Click on All Users link
-	@FindBy(xpath = "//a[@class='wp-first-item current']")
+	@FindBy(xpath = "//*[@id=\"menu-users\"]/ul/li[2]")
 	private WebElement allUsers;
 
-	public void allUsers() {
-		//Actions action = new Actions(driver);
-		//action.moveToElement(allUsers).click().build().perform();
+	public void allUsersShown() {
 		allUsers.click();
+		System.out.println("User Clicked");
 	}
 
 	// 3. Click on the checkbox beside the user
-	@FindBy(id = "user_150")
+	@FindBy(id = "user_153")
 	private WebElement userselected;
 
 	public void userSelected() {
