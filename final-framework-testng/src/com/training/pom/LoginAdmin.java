@@ -1,26 +1,25 @@
 package com.training.pom;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPOM {
+public class LoginAdmin {
 	private WebDriver driver; 
 	
-	public LoginPOM(WebDriver driver) {
+	public LoginAdmin(WebDriver driver) {
 		this.driver = driver; 
 		PageFactory.initElements(driver, this);
 	}
-	
-	@FindBy(id="login")
+	@FindBy(id="user_login")
 	private WebElement userName; 
 	
-	@FindBy(id="password")
+	@FindBy(id="user_pass")
 	private WebElement password;
 	
-	@FindBy(id="formLogin_submitAuth")
-	private WebElement loginBtn; 
+	@FindBy(name="login")
+	private WebElement signin; 
 	
 	public void sendUserName(String userName) {
 		this.userName.clear();
@@ -33,6 +32,22 @@ public class LoginPOM {
 	}
 	
 	public void clickLoginBtn() {
-		this.loginBtn.click(); 
+		this.signin.click(); 
 	}
+	
+	/*
+	public void login(String userNames, String Passwords)
+	{
+		this.userName.clear();
+		this.userName.sendKeys(userName);
+		
+		this.password.clear(); 
+		this.password.sendKeys(password); 
+		
+		this.signin.click(); 
+		
+	}
+		*/
+		
+	
 }
