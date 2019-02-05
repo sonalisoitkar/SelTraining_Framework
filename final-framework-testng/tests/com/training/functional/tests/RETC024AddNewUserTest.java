@@ -1,5 +1,4 @@
 package com.training.functional.tests;
-
 import org.testng.annotations.Test;
 import com.training.generics.ScreenShot;
 import com.training.pom.LoginAdmin;
@@ -10,13 +9,10 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
-
 import static org.testng.Assert.assertEquals;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
-
 import org.openqa.selenium.WebDriver;
 
 public class RETC024AddNewUserTest {
@@ -69,11 +65,9 @@ public class RETC024AddNewUserTest {
 		retc024addNewUser.clickRoleList();
 		retc024addNewUser.validCredentialsInListBox();
 		retc024addNewUser.createUsers(); Thread.sleep(3000);
-
-	}
-
-	
-	  @Test(priority = 2) public void addNewUserAssert() 
+}
+	  @Test(priority = 2) 
+	  public void addNewUserAssert() 
 	  { String Expected = "New user created. Edit user"; 
 	  String Actual = retc024addNewUser.AssertUser();
 	 System.out.println(); assertEquals(Actual, Expected);

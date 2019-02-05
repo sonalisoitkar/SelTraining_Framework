@@ -18,6 +18,7 @@ public class RETC021DelTagFromTagPage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
+	//1. Mouse over on Posts link
 
 	@FindBy(xpath = "//*[@id='menu-posts']/a/div[2]")
 	private WebElement Posts;
@@ -28,7 +29,7 @@ public class RETC021DelTagFromTagPage {
 		action.moveToElement(Posts).click().build().perform();
 		this.Posts.click();
 	}
-
+//2. Click on Add New link
 	@FindBy(xpath = "//a[@href='edit-tags.php?taxonomy=post_tag']")
 	private WebElement tags;
 
@@ -39,6 +40,7 @@ public class RETC021DelTagFromTagPage {
 			System.out.println("tags page");
 	}
 
+	//3. click on Add New Category link of category section
 	@FindBy(xpath = "//input[@id='cb-select-547']")
 	private WebElement checkbox;
 
@@ -47,7 +49,7 @@ public class RETC021DelTagFromTagPage {
 		Thread.sleep(5000);
 		this.checkbox.click();
 	}
-
+//4. enter valid details in textbox
 	@FindBy(id = "bulk-action-selector-top")
 	private WebElement bulkselector;
 
@@ -56,7 +58,7 @@ public class RETC021DelTagFromTagPage {
 		bulkselector.click();
 		}
 	
-	
+	//5. Select value from Parent Category list box
 
 	@FindBy(id = "bulk-action-selector-top")
 	private WebElement delete;
@@ -66,7 +68,7 @@ public class RETC021DelTagFromTagPage {
 		Select sc = new Select(delete);
 		sc.selectByVisibleText("Delete");
 	}
-
+//6. Click on Add New category button
 	@FindBy(id = "doaction2")
 	private WebElement apply;
 
@@ -74,6 +76,7 @@ public class RETC021DelTagFromTagPage {
 		System.out.println("6. Click on Apply button");
 		this.apply.click();	
 	}
+	//7. Refresh the page
 	@FindBy(xpath="//*[@id='message']/p")
 	private WebElement deleteTags;
 
@@ -83,4 +86,4 @@ public class RETC021DelTagFromTagPage {
 		System.out.println(str1);
 		return str1;
 	}
-}
+	}

@@ -1,29 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="93620" started-at="2019-01-27T12:47:19Z" finished-at="2019-01-27T12:48:53Z">
+  <suite name="Default suite" duration-ms="56940" started-at="2019-02-05T05:35:28Z" finished-at="2019-02-05T05:36:25Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="93620" started-at="2019-01-27T12:47:19Z" finished-at="2019-01-27T12:48:53Z">
-      <class name="com.training.functional.tests.RETC024AddNewUserTest">
-        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.functional.tests.RETC024AddNewUserTest@27efef64]" name="setUpBeforeClass" is-config="true" duration-ms="11253" started-at="2019-01-27T12:47:19Z" finished-at="2019-01-27T12:47:31Z">
+    <test name="Default test" duration-ms="56940" started-at="2019-02-05T05:35:28Z" finished-at="2019-02-05T05:36:25Z">
+      <class name="com.training.functional.tests.RETC054AddnViewCommentInBlogPageTest">
+        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.functional.tests.RETC054AddnViewCommentInBlogPageTest@6f7fd0e6]" name="setUpBeforeClass" is-config="true" duration-ms="18533" started-at="2019-02-05T05:35:28Z" finished-at="2019-02-05T05:35:46Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpBeforeClass -->
-        <test-method status="PASS" signature="validLoginTest()[pri:0, instance:com.training.functional.tests.RETC024AddNewUserTest@27efef64]" name="validLoginTest" duration-ms="29745" started-at="2019-01-27T12:47:31Z" finished-at="2019-01-27T12:48:00Z">
+        <test-method status="PASS" signature="addnViewCommentInBlogPageTest()[pri:0, instance:com.training.functional.tests.RETC054AddnViewCommentInBlogPageTest@6f7fd0e6]" name="addnViewCommentInBlogPageTest" duration-ms="35125" started-at="2019-02-05T05:35:46Z" finished-at="2019-02-05T05:36:22Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- validLoginTest -->
-        <test-method status="PASS" signature="addNewUserTest()[pri:1, instance:com.training.functional.tests.RETC024AddNewUserTest@27efef64]" name="addNewUserTest" duration-ms="52075" started-at="2019-01-27T12:48:00Z" finished-at="2019-01-27T12:48:53Z">
+        </test-method> <!-- addnViewCommentInBlogPageTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.training.functional.tests.RETC054AddnViewCommentInBlogPageTest@6f7fd0e6]" name="tearDown" is-config="true" duration-ms="3254" started-at="2019-02-05T05:36:22Z" finished-at="2019-02-05T05:36:25Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- addNewUserTest -->
-        <test-method status="PASS" signature="addNewUserAssert()[pri:2, instance:com.training.functional.tests.RETC024AddNewUserTest@27efef64]" name="addNewUserAssert" duration-ms="499" started-at="2019-01-27T12:48:53Z" finished-at="2019-01-27T12:48:53Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- addNewUserAssert -->
-      </class> <!-- com.training.functional.tests.RETC024AddNewUserTest -->
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.training.functional.tests.RETC054AddnViewCommentInBlogPageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

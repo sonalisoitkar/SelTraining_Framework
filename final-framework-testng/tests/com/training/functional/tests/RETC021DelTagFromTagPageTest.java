@@ -1,5 +1,4 @@
 package com.training.functional.tests;
-
 import org.testng.annotations.Test;
 import com.training.generics.ScreenShot;
 import com.training.pom.LoginAdmin;
@@ -9,13 +8,10 @@ import com.training.utility.DriverNames;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
-
 import static org.testng.Assert.assertEquals;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
-
 import org.openqa.selenium.WebDriver;
 
 public class RETC021DelTagFromTagPageTest extends LoginTests {

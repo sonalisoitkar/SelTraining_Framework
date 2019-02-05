@@ -30,8 +30,8 @@ public class RETC025PropertiesPage {
 	private WebElement allProperties;
 
 	public void allProperties() {
-		//Actions action = new Actions(driver);
-		//action.moveToElement(this.allProperties).click().build().perform();
+		Actions action = new Actions(driver);
+		action.moveToElement(this.allProperties).click().build().perform();
 	}
 
 	// 3. Click on All Dates list box
