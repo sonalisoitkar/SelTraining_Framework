@@ -1,12 +1,13 @@
 package com.training.functional.tests;
 import org.testng.annotations.Test;
 import com.training.generics.ScreenShot;
+import com.training.pom.CommonComponents;
 import com.training.pom.LoginAdmin;
-import com.training.pom.RETC021DelTagFromTagPage;
+import com.training.pom.DelTagFromTagPage;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.AfterMethod;
+
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import static org.testng.Assert.assertEquals;
 import java.io.FileInputStream;
@@ -14,13 +15,14 @@ import java.io.IOException;
 import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 
-public class RETC021DelTagFromTagPageTest extends LoginTests {
+public class RETC021DelTagFromTagPageTest {
 	private WebDriver driver;
 	private String baseUrl;
 	private static Properties properties;
 	private ScreenShot screenShot;
-	private RETC021DelTagFromTagPage retc021DelTagFromTagPageTest;
+	private DelTagFromTagPage delTagFromTagPageTest;
 	private LoginAdmin loginAdmin;
+	private CommonComponents commonComponents;
 
 	@BeforeClass
 	public void setUpBeforeClass() throws IOException {
@@ -28,7 +30,8 @@ public class RETC021DelTagFromTagPageTest extends LoginTests {
 		FileInputStream inStream = new FileInputStream("./resources/others.properties");
 		properties.load(inStream);
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
-		retc021DelTagFromTagPageTest = new RETC021DelTagFromTagPage(driver);
+		delTagFromTagPageTest = new DelTagFromTagPage(driver);
+		commonComponents=new CommonComponents(driver);
 		loginAdmin = new LoginAdmin(driver);
 		baseUrl = properties.getProperty("baseURL");
 		screenShot = new ScreenShot(driver);
@@ -47,27 +50,25 @@ public class RETC021DelTagFromTagPageTest extends LoginTests {
 	
 	  @Test(priority = 1) 
 	  public void delTagFromTagPage() throws InterruptedException {
-	  retc021DelTagFromTagPageTest.clickPosts();
-	  retc021DelTagFromTagPageTest.clickTags();
-	  retc021DelTagFromTagPageTest.selectCheckBox();
-	  retc021DelTagFromTagPageTest.selectBulkList();	  
-	  retc021DelTagFromTagPageTest.deleteTag();
-	  retc021DelTagFromTagPageTest.applyTag();
-	 
-
-	}
+		  commonComponents.clickPosts();
+		  delTagFromTagPageTest.clickTags();
+		  delTagFromTagPageTest.selectCheckBox();
+		  delTagFromTagPageTest.selectBulkList();	  
+		  delTagFromTagPageTest.deleteTag();
+		  delTagFromTagPageTest.applyTag();
+	 	}
 	  @Test(priority = 2)
 		public void delTagAssert() throws InterruptedException {
 			String Expected = "Tags deleted.";
-			String Actual = retc021DelTagFromTagPageTest.AssertTag();
+			String Actual = delTagFromTagPageTest.AssertTag();
 			System.out.println();
 			assertEquals(Actual, Expected);
 			screenShot.captureScreenShot("First");
 		}
 
-/*	@AfterMethod
+@AfterClass
 	public void tearDown() throws Exception {
 		Thread.sleep(1000);
 		driver.quit();
-	}*/
+	}
 }

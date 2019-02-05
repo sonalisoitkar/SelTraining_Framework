@@ -63,7 +63,6 @@ public class RETC051PropertiesTrashPageTest {
 		displayProperties.trashPropertyLinks(propertyName);
 		String Actual = displayProperties.assertMessage();
 		String Expected = "1 post restored from the Trash.";
-		System.out.println();
 		assertEquals(Actual, Expected);
 		screenShot.captureScreenShot("PropertyRestored1");
 		displayProperties.allPropertiesDisplayed();

@@ -2,12 +2,13 @@ package com.training.functional.tests;
 
 import org.testng.annotations.Test;
 import com.training.generics.ScreenShot;
+import com.training.pom.CommonComponents;
 import com.training.pom.LoginAdmin;
-import com.training.pom.RETC023DeleteUser;
+import com.training.pom.AllUserActionsPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.AfterMethod;
+
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 import static org.testng.Assert.assertEquals;
@@ -23,8 +24,9 @@ public class RETC023DeleteUserTest {
 	private String baseUrl;
 	private static Properties properties;
 	private ScreenShot screenShot;
-	private RETC023DeleteUser retc022DelUser;
+	private AllUserActionsPOM allUserActionsPOM;
 	private LoginAdmin loginAdmin;
+	private CommonComponents commonComponents;
 
 	@BeforeClass
 	public void setUpBeforeClass() throws IOException {
@@ -32,9 +34,10 @@ public class RETC023DeleteUserTest {
 		FileInputStream inStream = new FileInputStream("./resources/others.properties");
 		properties.load(inStream);
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
-		retc022DelUser = new RETC023DeleteUser(driver);
+		allUserActionsPOM = new AllUserActionsPOM(driver);
 		baseUrl = properties.getProperty("baseURL");
 		loginAdmin = new LoginAdmin(driver);
+		commonComponents=new CommonComponents(driver);
 		screenShot = new ScreenShot(driver);
 		// open the browser
 		driver.get(baseUrl);
@@ -50,22 +53,26 @@ public class RETC023DeleteUserTest {
 
 	@Test(priority = 1)
 	public void DeleteUser() throws InterruptedException {
-		retc022DelUser.Users();
+		commonComponents.Users();
 		Thread.sleep(3000);
 		//retc022DelUser.allUsersShown();
-		retc022DelUser.userSelected();
-		retc022DelUser.bulkactionlist();
-		retc022DelUser.delUser();
-		retc022DelUser.applyButton();
-		retc022DelUser.confirmDelete();
+		allUserActionsPOM.userSelected();
+		allUserActionsPOM.bulkactionlist();
+		allUserActionsPOM.delUser();
+		allUserActionsPOM.applyButton();
+		allUserActionsPOM.confirmDelete();
 
 	}
 	@Test(priority = 2)
 	public void addNewUserAssert() throws InterruptedException {
 		String Expected = "User deleted.";
-		String Actual = retc022DelUser.AssertRole();
-		System.out.println();
+		String Actual = allUserActionsPOM.AssertRole();
 		assertEquals(Actual, Expected);
 		screenShot.captureScreenShot("First");
+	}
+	@AfterClass
+	public void tearDown() throws Exception {
+		Thread.sleep(1000);
+		driver.quit();
 	}
 }

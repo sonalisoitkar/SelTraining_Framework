@@ -64,15 +64,13 @@ public class RETC052DeletePostTest {
 		displayProperties.mouseOverProperty(propertyName1);
 		String Actual = displayProperties.assertMessage();
 		String Expected = "1 post moved to the Trash. Undo";
-		System.out.println();
 		assertEquals(Actual, Expected);
 		screenShot.captureScreenShot("PropertyMovedToTrash");
 		displayProperties.alltrashPropertyDisplayed();
 		displayProperties.mouseOverOneProperty("new launch");
 		String Actual1 = displayProperties.assertMessageDel();
 		String Expected1 = "1 post permanently deleted.";
-		System.out.println();
-		assertEquals(Actual1, Expected1);
+			assertEquals(Actual1, Expected1);
 		screenShot.captureScreenShot("PropertyDeleted");
 	}
 	 @AfterClass 

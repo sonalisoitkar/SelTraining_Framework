@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
 public class CommonComponents {
@@ -49,6 +48,23 @@ public class CommonComponents {
 			// Thread.sleep(5000);
 			addNewPost.click();
 		}
+		// 1. Click on Users link
+		@FindBy(xpath = "//*[@id=\"menu-users\"]/a/div[2]")
+		private WebElement Users;
+
+		public void Users() {
+			Actions action = new Actions(driver);
+			action.moveToElement(Users).build().perform();
+			this.Users.click();
+		}
+
+		// 2. Click on All Users link
+		@FindBy(xpath = "//*[@id=\"menu-users\"]/ul/li[2]")
+		private WebElement allUsers;
+
+		public void allUsersShown() {
+			allUsers.click();
+					}
 
 		
 	

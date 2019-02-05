@@ -33,8 +33,7 @@ public class AddnViewCommentInBlogPage {
 	private WebElement blog;
 
 	public void clickBlog() {
-		System.out.println("Click on the Blog Link");
-		this.blog.click();
+			this.blog.click();;
 	}
 
 	// 2. Click on Read More link of post added by admin
@@ -43,10 +42,6 @@ public class AddnViewCommentInBlogPage {
 
 	public void clickReadMore() throws AWTException {
 				readMore.click();
-//List<WebElement> allLinks = driver.findElements(By.xpath("//a[@class='read-more'][contains(text(),'Read More')]"));
-//allLinks.get(1).getText();		
-//Iterator<WebElement> itr = allLinks.iterator();
-		//itr.get
 		}
 	
 
@@ -55,26 +50,26 @@ public class AddnViewCommentInBlogPage {
 	private WebElement enterComment;
 
 	public void enterCommentBox(String enterComment) throws InterruptedException {
-		System.out.println("3. Enter valid details in Comment textbox");
 		Thread.sleep(3000);
 		this.enterComment.sendKeys(enterComment);
 	
 	}
+	// Enter valid Name textbox");
 	@FindBy(xpath = "//input[@id='author']")
 	private WebElement nameField;
 
 	public void NameFieldBox(String nameField) throws InterruptedException {
-		System.out.println("3. Enter valid Name textbox");
+	
 		Thread.sleep(3000);
 		this.nameField.sendKeys(nameField);
 	
 	}
-	
+	//3. Enter valid email in textbox;
 	@FindBy(xpath = "//input[@id='email']")
 	private WebElement emailField;
 
 	public void emailFieldBox(String emailField) throws InterruptedException {
-		System.out.println("3. Enter valid email in textbox");
+	
 		Thread.sleep(3000);
 		this.emailField.sendKeys(emailField);
 	

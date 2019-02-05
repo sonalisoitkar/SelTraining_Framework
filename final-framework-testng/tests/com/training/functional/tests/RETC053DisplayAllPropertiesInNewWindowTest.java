@@ -11,12 +11,9 @@ import com.training.generics.ScreenShot;
 import com.training.pom.CommonComponents;
 import com.training.pom.DisplayPropertiesPage;
 import com.training.pom.LoginAdmin;
-import com.training.pom.RETC025PropertiesPage;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import static org.testng.Assert.assertEquals;
 

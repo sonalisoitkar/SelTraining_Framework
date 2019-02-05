@@ -1,14 +1,15 @@
 package com.training.functional.tests;
 import org.testng.annotations.Test;
 import com.training.generics.ScreenShot;
+import com.training.pom.CommonComponents;
 import com.training.pom.LoginAdmin;
-import com.training.pom.RETC025PropertiesPage;
+import com.training.pom.PropertiesPage;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import static org.testng.Assert.assertEquals;
+
+import java.awt.AWTException;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -19,7 +20,8 @@ public class RETC025PropertiesPageTest {
 	private String baseUrl;
 	private static Properties properties;
 	private ScreenShot screenShot;
-	private RETC025PropertiesPage retc025PropertiesPage;
+	private PropertiesPage propertiesPage;
+	private CommonComponents commonComponents;
 	private LoginAdmin loginAdmin;
 
 	@BeforeClass
@@ -28,7 +30,8 @@ public class RETC025PropertiesPageTest {
 		FileInputStream inStream = new FileInputStream("./resources/others.properties");
 		properties.load(inStream);
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
-		retc025PropertiesPage = new RETC025PropertiesPage(driver);
+		commonComponents=new CommonComponents(driver);
+		propertiesPage = new PropertiesPage(driver);
 		baseUrl = properties.getProperty("baseURL");
 		loginAdmin = new LoginAdmin(driver);
 		screenShot = new ScreenShot(driver);
@@ -45,20 +48,19 @@ public class RETC025PropertiesPageTest {
 	}
 
 	@Test(priority = 1)
-	public void userProperties() {
-		retc025PropertiesPage.clickProperties();
-		retc025PropertiesPage.allProperties();
-		retc025PropertiesPage.addDates();
-		retc025PropertiesPage.validCredentialsInDateBox();
-		retc025PropertiesPage.filterResult();
+	public void userProperties() throws AWTException {
+		commonComponents.clickProperties();
+		commonComponents.allProperties();
+		propertiesPage.addDates();
+		propertiesPage.validCredentialsInDateBox();
+		propertiesPage.filterResult();
 		
 	}
 	@Test(priority = 2)
 	public void adminPropertiesAssert() {
 		String Expected = "admin";
-		//String Actual = retc025PropertiesPage.AdminProperties();
-		System.out.println();
-		//assertEquals(Actual, Expected);
-		screenShot.captureScreenShot("First");
+		String Actual = propertiesPage.AdminProperties();
+		assertEquals(Actual, Expected);
+		screenShot.captureScreenShot("AdminAuthorColumnPassed");
 	}
 }

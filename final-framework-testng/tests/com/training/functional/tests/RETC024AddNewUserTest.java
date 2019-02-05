@@ -1,13 +1,12 @@
 package com.training.functional.tests;
 import org.testng.annotations.Test;
 import com.training.generics.ScreenShot;
+import com.training.pom.CommonComponents;
 import com.training.pom.LoginAdmin;
-import com.training.pom.RETC024AddNewUser;
+import com.training.pom.AllUserActionsPOM;
+import com.training.pom.AddNewUserAction;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
-import org.testng.annotations.BeforeMethod;
-import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import static org.testng.Assert.assertEquals;
 import java.io.FileInputStream;
@@ -20,8 +19,10 @@ public class RETC024AddNewUserTest {
 	private String baseUrl;
 	private static Properties properties;
 	private ScreenShot screenShot;
-	private RETC024AddNewUser retc024addNewUser;
+	private AllUserActionsPOM allUserActionsPOM;
+	private AddNewUserAction addNewUserAction;
 	private LoginAdmin loginAdmin;
+	private CommonComponents commonComponents;
 
 	@BeforeClass
 	public void setUpBeforeClass() throws IOException {
@@ -29,9 +30,11 @@ public class RETC024AddNewUserTest {
 		FileInputStream inStream = new FileInputStream("./resources/others.properties");
 		properties.load(inStream);
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
-		retc024addNewUser = new RETC024AddNewUser(driver);
+		allUserActionsPOM = new AllUserActionsPOM(driver);
+		addNewUserAction= new AddNewUserAction(driver);
 		baseUrl = properties.getProperty("baseURL");
 		loginAdmin = new LoginAdmin(driver);
+		commonComponents=new CommonComponents(driver);
 		screenShot = new ScreenShot(driver);
 		// open the browser
 		driver.get(baseUrl);
@@ -44,33 +47,31 @@ public class RETC024AddNewUserTest {
 		loginAdmin.clickLoginBtn();
 
 	}
-
 	@Test(priority = 1)
 
 	public void addNewUserTest() throws InterruptedException {
-		retc024addNewUser.clickUsers();
+		commonComponents.Users();
 		Thread.sleep(3000);
-		retc024addNewUser.addNewUser();
+		addNewUserAction.addNewUser();
 		//retc024addNewUser.showPassword();
-		retc024addNewUser.userLogin("11bb1234");
-		retc024addNewUser.email("11bb1234@gmail.com");
-		retc024addNewUser.firstName("11bb1234");
-		retc024addNewUser.lastName("soitkarjain12");
-		retc024addNewUser.showUrl("www.google.com");
-		retc024addNewUser.showPassword();
+		addNewUserAction.userLogin("sonaliDel1");
+		addNewUserAction.email("sonali_kk1@gmail.com");
+		addNewUserAction.firstName("sonaliDel1");
+		addNewUserAction.lastName("soitkarjain1");
+		addNewUserAction.showUrl("www.google.com");
+		addNewUserAction.showPassword();
 		Thread.sleep(3000);
-
-		retc024addNewUser.enterPassword("11bb12345@12345"); 
+		addNewUserAction.enterPassword("11b12345678@12345"); 
 		Thread.sleep(3000);
-		retc024addNewUser.clickRoleList();
-		retc024addNewUser.validCredentialsInListBox();
-		retc024addNewUser.createUsers(); Thread.sleep(3000);
+		addNewUserAction.clickRoleList();
+		addNewUserAction.validCredentialsInListBox();
+		addNewUserAction.createUsers(); Thread.sleep(3000);
 }
 	  @Test(priority = 2) 
 	  public void addNewUserAssert() 
 	  { String Expected = "New user created. Edit user"; 
-	  String Actual = retc024addNewUser.AssertUser();
-	 System.out.println(); assertEquals(Actual, Expected);
+	  String Actual = allUserActionsPOM.AssertUser();
+	  assertEquals(Actual, Expected);
 	 screenShot.captureScreenShot("AddNewUser");
 	 }
 	 

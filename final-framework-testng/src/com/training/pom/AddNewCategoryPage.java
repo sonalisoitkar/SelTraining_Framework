@@ -1,10 +1,15 @@
 package com.training.pom;
 
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /*Mouse over posts->Add new->Add New Category->Enter Details->Select Value->click button->Refresh page->EnterTitle values->
 Enter Body Values->Click Checkbox->Publish Buton*/
@@ -21,7 +26,7 @@ public class AddNewCategoryPage {
 	private WebElement addNewCategoryButton;
 
 	public void addNewCategoryButtonClick() throws InterruptedException {
-		Thread.sleep(5000);
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		addNewCategoryButton.click();
 	}
 
@@ -30,7 +35,7 @@ public class AddNewCategoryPage {
 	private WebElement categoryTestBox;
 
 	public void enterCategoryTestBox(String categoryTestBox) throws InterruptedException {
-		Thread.sleep(3000);
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		this.categoryTestBox.click();
 		this.categoryTestBox.sendKeys(categoryTestBox);
 	}
@@ -87,7 +92,7 @@ public class AddNewCategoryPage {
 	@FindBy(xpath = "//input[@id='publish']")
 	private WebElement publish;
 
-	public void publishButton() throws InterruptedException {
+	public void publishButton() throws InterruptedException  {
 		Thread.sleep(3000);
 		publish.click();
 
