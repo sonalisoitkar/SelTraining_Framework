@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 import com.training.generics.ScreenShot;
-import com.training.pom.AddNewCategoryPage;
+import com.training.pom.AddNewPostPage;
 import com.training.pom.LoginAdmin;
 import com.training.pom.CommonComponents;
 import com.training.utility.DriverFactory;
@@ -15,12 +15,20 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import static org.testng.Assert.assertEquals;
 
-public class RETC055AddNewCategoryPageTest {
+/*
+ * Author               :Sonali Soitkar
+ * Test CaseID          :RETC_055
+ * Test Case Description:To verify whether application allows admin to add new category while adding new post
+ * Precondition         :user should have launched the application by entering valid URL
+                        :admin should have added New Launch Post
+ */
+
+public class RETC055AddNewCategoryPageInPostPageTest {
 	private WebDriver driver;
 	private String baseUrl;
 	private static Properties properties;
 	private ScreenShot screenShot;
-	private AddNewCategoryPage addNewCategoryPage;
+	private AddNewPostPage addNewCategoryPage;
 	private LoginAdmin loginAdmin;
 	private CommonComponents commonComponents;
 
@@ -30,7 +38,7 @@ public class RETC055AddNewCategoryPageTest {
 		FileInputStream inStream = new FileInputStream("./resources/others.properties");
 		properties.load(inStream);
 		driver = DriverFactory.getDriver(DriverNames.FIREFOX);
-		addNewCategoryPage = new AddNewCategoryPage(driver);
+		addNewCategoryPage = new AddNewPostPage(driver);
 		loginAdmin = new LoginAdmin(driver);
 		commonComponents = new CommonComponents(driver);
 		baseUrl = properties.getProperty("baseURL");
@@ -48,10 +56,10 @@ public class RETC055AddNewCategoryPageTest {
 	}
 
 	@Test(priority = 1)
-	public void addNViewCommentsInBlogPageTest() throws InterruptedException {
+	public void addNViewCommentsInBlogPageTest(String createdCategory1) throws InterruptedException {
 		commonComponents.clickPosts();
 		commonComponents.addNewPostLinkClick();
-		addNewCategoryPage.addNewCategoryButtonClick();
+		addNewCategoryPage.addNewCategoryClick();
 		Thread.sleep(3000);
 		addNewCategoryPage.enterCategoryTestBox("Plots2123");
 		addNewCategoryPage.selectParentCategory();
@@ -59,7 +67,7 @@ public class RETC055AddNewCategoryPageTest {
 		addNewCategoryPage.refreshPageView();
 		addNewCategoryPage.enterTitle("vihar1");
 		addNewCategoryPage.enterTextBody(" New Launch in Plots");
-		addNewCategoryPage.createdCategorySelected();
+		addNewCategoryPage.createdCategorySelected(createdCategory1);
 		addNewCategoryPage.publishButton();
 		String Expected = "Post published. View post";
 		String Actual = addNewCategoryPage.assertPublish();

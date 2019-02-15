@@ -13,21 +13,28 @@ public class AllUserActionsPOM {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	
-	//RETC_013 To verify the added user with successful message.
-	@FindBy(xpath="//*[@id='message']/p")
-	private WebElement editUser;
+	//  Search for User using search text box 
+		@FindBy(id="user-search-input")
+		private WebElement searchTextBox;
 
-	public String AssertUser() {
-		String str1=editUser.getText();
-		return str1;
-	}
+	public void searchTextBoxEntered(String searchTextBox ) {
+			this.searchTextBox.sendKeys(searchTextBox);
+		}
+ // Click search button
+		@FindBy(xpath = "//*[@id=\"search-submit\"]")
+		private WebElement searchUsers;
+
+		public void searchPropertiesButton() {
+			searchUsers.click();
+		}
+	
 	
 	//RETC022_3. Click on the checkbox beside the user
-		@FindBy(id = "user_31")
-		private WebElement userselected1;
+		
+		@FindBy(xpath="//tbody[1]/tr[1]/th[1]/input[1]")
+		private WebElement userselected;
 
-		public void userSelected1() {
+		public void userSelected() {
 			userselected.click();
 		}
 
@@ -62,17 +69,16 @@ public class AllUserActionsPOM {
 		private WebElement changedRole;
 
 		public String AssertRole1() throws InterruptedException {
-			Thread.sleep(3000);
 			String str1 = changedRole.getText();
 			return str1;
 		}
-		// RETC023_3. Click on the checkbox beside the user
+		/*// RETC023_3. Click on the checkbox beside the user
 		@FindBy(id = "user_32")
 		private WebElement userselected;
 
 		public void userSelected() {
 			userselected.click();
-		}
+		}*/
 
 		// RETC023_4. Click on Bulk Actions list box
 		@FindBy(id = "bulk-action-selector-top")
@@ -111,7 +117,6 @@ public class AllUserActionsPOM {
 		private WebElement deleteUser;
 
 		public String AssertRole() throws InterruptedException {
-			Thread.sleep(3000);
 			String str1 = deleteUser.getText();
 			return str1;
 		}

@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.training.functional.tests.RETC055AddNewCategoryPageTest">
+      <class name="com.training.functional.tests.RETC023DeleteUserTest">
         <methods>
-          <include name="tearDown"/>
-          <include name="addNViewCommentsInBlogPageTest"/>
           <include name="setUpBeforeClass"/>
+          <include name="tearDown"/>
+          <include name="deleteUser"/>
         </methods>
-      </class> <!-- com.training.functional.tests.RETC055AddNewCategoryPageTest -->
+      </class> <!-- com.training.functional.tests.RETC023DeleteUserTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

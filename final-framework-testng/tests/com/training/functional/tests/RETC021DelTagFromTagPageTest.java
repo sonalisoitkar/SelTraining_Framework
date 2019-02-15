@@ -15,6 +15,14 @@ import java.io.IOException;
 import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 
+/*
+ * Author               :Sonali Soitkar
+ * Test CaseID          :RETC_021
+ * Test Case Description:To verify whether application allows admin to delete tag from the tag page
+ * Precondition         :user should have launched the application by entering valid URL
+ *                      :admin should be logged in
+ */
+
 public class RETC021DelTagFromTagPageTest {
 	private WebDriver driver;
 	private String baseUrl;

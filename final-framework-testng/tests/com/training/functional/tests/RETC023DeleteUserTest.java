@@ -19,6 +19,14 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 
+/*
+ * Author               :Sonali Soitkar
+ * Test CaseID          :RETC_023
+ * Test Case Description:To Verify whether application allows admin to delete user from the users list
+ * Precondition         :user should have launched the application by entering valid URL
+ *                      :admin should be logged in
+ */
+
 public class RETC023DeleteUserTest {
 	private WebDriver driver;
 	private String baseUrl;
@@ -52,10 +60,11 @@ public class RETC023DeleteUserTest {
 	}
 
 	@Test(priority = 1)
-	public void DeleteUser() throws InterruptedException {
+	public void deleteUser() throws InterruptedException {
 		commonComponents.Users();
-		Thread.sleep(3000);
-		//retc022DelUser.allUsersShown();
+		commonComponents.allUsersShown();
+		allUserActionsPOM.searchTextBoxEntered("sonaliDel");
+		allUserActionsPOM.searchPropertiesButton();
 		allUserActionsPOM.userSelected();
 		allUserActionsPOM.bulkactionlist();
 		allUserActionsPOM.delUser();
@@ -64,15 +73,14 @@ public class RETC023DeleteUserTest {
 
 	}
 	@Test(priority = 2)
-	public void addNewUserAssert() throws InterruptedException {
+	public void delUserAssert() throws InterruptedException {
 		String Expected = "User deleted.";
 		String Actual = allUserActionsPOM.AssertRole();
 		assertEquals(Actual, Expected);
-		screenShot.captureScreenShot("First");
+		screenShot.captureScreenShot("user deleted");
 	}
 	@AfterClass
-	public void tearDown() throws Exception {
-		Thread.sleep(1000);
-		driver.quit();
+	public void tearDown()  {
+			driver.quit();
 	}
 }

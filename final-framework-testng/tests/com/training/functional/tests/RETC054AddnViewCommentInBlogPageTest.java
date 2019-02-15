@@ -18,6 +18,16 @@ import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 
+/*
+ * Author               :Sonali Soitkar
+ * Test CaseID          :RETC_054
+ * Test Case Description:To verify whether application displays property details home screen upon clicking Restore link of selected property 
+ *                      :details in trash
+ * Precondition         :user should have launched the application by entering valid URL
+                        :admin should be logged in
+                        :admin should have added property details in trash
+ */
+
 public class RETC054AddnViewCommentInBlogPageTest {
 	private WebDriver driver;
 	private String baseUrl;

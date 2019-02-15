@@ -15,6 +15,14 @@ import java.io.IOException;
 import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 
+/*
+ * Author               :Sonali Soitkar
+ * Test CaseID          :RETC_022
+ * Test Case Description:To Verify whether application allows admin to change the role of registered user in Users module
+ * Precondition         :user should have launched the application by entering valid URL
+ *                      :admin should be logged in
+ */
+
 public class RETC022ChangeRoleOfUserTest {
 	private WebDriver driver;
 	private String baseUrl;
@@ -33,7 +41,7 @@ public class RETC022ChangeRoleOfUserTest {
 		allUserActionsPOM = new AllUserActionsPOM(driver);
 		baseUrl = properties.getProperty("baseURL");
 		loginAdmin = new LoginAdmin(driver);
-		commonComponents=new CommonComponents(driver);
+		commonComponents = new CommonComponents(driver);
 		screenShot = new ScreenShot(driver);
 		// open the browser
 		driver.get(baseUrl);
@@ -48,27 +56,29 @@ public class RETC022ChangeRoleOfUserTest {
 	}
 
 	@Test(priority = 1)
-	public void createUserSub() throws InterruptedException {
+	public void changeRolUser() throws InterruptedException {
 		commonComponents.Users();
-		Thread.sleep(1000);
 		commonComponents.allUsersShown();
+		allUserActionsPOM.searchTextBoxEntered("sonali123");
+		allUserActionsPOM.searchPropertiesButton();
 		allUserActionsPOM.userSelected();
 		allUserActionsPOM.changeToNewRole();
 		allUserActionsPOM.changeRole();
-		allUserActionsPOM.clickChange("Manager");
+		allUserActionsPOM.clickChange("Agent");
 
 	}
+
 	@Test(priority = 2)
-	public void addNewUserAssert() throws InterruptedException {
+	public void changedRoleUserAssert() throws InterruptedException {
 		String Expected = "Changed roles.";
 		String Actual = allUserActionsPOM.AssertRole();
 		System.out.println();
 		assertEquals(Actual, Expected);
-		screenShot.captureScreenShot("First");
+		screenShot.captureScreenShot("ChangedRole");
 	}
+
 	@AfterClass
-	public void tearDown() throws Exception {
-		Thread.sleep(1000);
+	public void tearDown() {
 		driver.quit();
 	}
 }

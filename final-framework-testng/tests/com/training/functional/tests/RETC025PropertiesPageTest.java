@@ -15,6 +15,13 @@ import java.io.IOException;
 import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 
+/*
+ * Author               :Sonali Soitkar
+ * Test CaseID          :RETC_025
+ * Test Case Description:TO Verify whether application allows admin to filter properties details based on the search criteria
+ * Precondition         :user should have launched the application by entering valid URL 
+ *                      :admin should be logged in
+ */
 public class RETC025PropertiesPageTest {
 	private WebDriver driver;
 	private String baseUrl;

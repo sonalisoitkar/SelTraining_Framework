@@ -88,7 +88,7 @@ public class DisplayPropertiesPage {
 	@FindBy(xpath = "//*[@id='post-search-input']")
 	private WebElement searchTextBox;
 
-	public void searchTextBoxEntered(String searchTextBox ) {
+	public void searchTextBoxEntered(String searchTextBox) {
 		this.searchTextBox.sendKeys(searchTextBox);
 	}
 

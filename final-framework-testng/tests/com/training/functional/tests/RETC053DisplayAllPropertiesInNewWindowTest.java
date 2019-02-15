@@ -17,6 +17,15 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import static org.testng.Assert.assertEquals;
 
+/*
+ * Author               :Sonali Soitkar
+ * Test CaseID          :RETC_053
+ * Test Case Description:To verify whether application allows admin to delete post permanently
+ * Precondition         :user should have launched the application by entering valid URL
+                        :admin should be logged in
+                        :admin should have added property details
+ */
+
 public class RETC053DisplayAllPropertiesInNewWindowTest {
 	private WebDriver driver;
 	private String baseUrl;

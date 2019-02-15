@@ -1,5 +1,6 @@
 package com.training.functional.tests;
 import org.testng.annotations.Test;
+
 import com.training.generics.ScreenShot;
 import com.training.pom.CommonComponents;
 import com.training.pom.LoginAdmin;
@@ -14,12 +15,19 @@ import java.io.IOException;
 import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 
+/*
+ * Author               :Sonali Soitkar
+ * Test CaseID          :RETC_024
+ * Test Case Description:To Verify whether application allows admin to add new user
+ * Precondition         :user should have launched the application by entering valid URL
+                        :admin should be logged in
+ */
+
 public class RETC024AddNewUserTest {
 	private WebDriver driver;
 	private String baseUrl;
 	private static Properties properties;
 	private ScreenShot screenShot;
-	private AllUserActionsPOM allUserActionsPOM;
 	private AddNewUserAction addNewUserAction;
 	private LoginAdmin loginAdmin;
 	private CommonComponents commonComponents;
@@ -30,7 +38,7 @@ public class RETC024AddNewUserTest {
 		FileInputStream inStream = new FileInputStream("./resources/others.properties");
 		properties.load(inStream);
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
-		allUserActionsPOM = new AllUserActionsPOM(driver);
+		new AllUserActionsPOM(driver);
 		addNewUserAction= new AddNewUserAction(driver);
 		baseUrl = properties.getProperty("baseURL");
 		loginAdmin = new LoginAdmin(driver);
@@ -52,8 +60,7 @@ public class RETC024AddNewUserTest {
 	public void addNewUserTest() throws InterruptedException {
 		commonComponents.Users();
 		Thread.sleep(3000);
-		addNewUserAction.addNewUser();
-		//retc024addNewUser.showPassword();
+		commonComponents.addNewUser();
 		addNewUserAction.userLogin("sonaliDel1");
 		addNewUserAction.email("sonali_kk1@gmail.com");
 		addNewUserAction.firstName("sonaliDel1");
@@ -64,13 +71,13 @@ public class RETC024AddNewUserTest {
 		addNewUserAction.enterPassword("11b12345678@12345"); 
 		Thread.sleep(3000);
 		addNewUserAction.clickRoleList();
-		addNewUserAction.validCredentialsInListBox();
+		addNewUserAction.validCredentialsInListBox("Agent");
 		addNewUserAction.createUsers(); Thread.sleep(3000);
 }
 	  @Test(priority = 2) 
-	  public void addNewUserAssert() 
+	  public void addNewUserAssert() throws InterruptedException 
 	  { String Expected = "New user created. Edit user"; 
-	  String Actual = allUserActionsPOM.AssertUser();
+	  String Actual = addNewUserAction.assertUserCreated();
 	  assertEquals(Actual, Expected);
 	 screenShot.captureScreenShot("AddNewUser");
 	 }

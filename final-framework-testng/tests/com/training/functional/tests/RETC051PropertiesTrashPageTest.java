@@ -20,6 +20,16 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import static org.testng.Assert.assertEquals;
 
+/*
+ * Author               :Sonali Soitkar
+ * Test CaseID          :RETC_051
+ * Test Case Description:To verify whether application displays property details in all properties upon clicking Restore link of selected 
+ *                      :property details in trash
+ * Precondition         :user should have launched the application by entering valid URL
+                        :admin should be logged in
+                        :admin should have added property details in trash
+ */
+
 public class RETC051PropertiesTrashPageTest {
 	private WebDriver driver;
 	private String baseUrl;
